@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mobile.css" />
+    <title>Calculator APP</title>
+    <!-- From https://www.frontendmentor.io/ by Edouard Herrengt -->
+  </head>
+  <body>
+    <main>
+      <h1 class="mode-test">SPLI<br />TTER</h1>
+      <!--! Toute la calculette -->
+      <section class="calculator">
+        <!--Thèmes sombre & clair-->
+        <div class="theme">
+          <button class="dark">Dark</button>
+          <button class="light">Light</button>
+        </div>
+
+        <!--* Colone de GAUCHE -->
+
+        <div class="left-container">
+          <div class="bill">
+            <div class="bill-form forms">
+              <label for="bill-number">Bill</label>
+              <img src="./images/icon-dollar.svg" alt="dollar symbol" />
+              <input
+                id="bill-input"
+                name="bill-number"
+                type="text"
+                required
+                placeholder="0.00"
+                onchange=""
+              />
+            </div>
+          </div>
+
+          <div class="tip">
+            <h2>Select Tip %</h2>
+
+            <div class="tip-grid">
+              <div class="percentage-choice">
+                <label class="label-percent p1">
+                  <p>5%</p>
+                  <input
+                    type="radio"
+                    class="input-percent"
+                    name="input-percent"
+                    id="5-percent"
+                  />
+                </label>
+              </div>
+
+              <div class="percentage-choice">
+                <label class="label-percent p2">
+                  <p>10%</p>
+                  <input
+                    type="radio"
+                    class="input-percent"
+                    name="input-percent"
+                    id="10-percent"
+                  />
+                </label>
+              </div>
+
+              <div class="percentage-choice">
+                <label class="label-percent p3">
+                  <p>15%</p>
+                  <input type="radio" name="input-percent" id="15-percent" />
+                </label>
+              </div>
+            </div>
+
+            <div class="tip-grid-2">
+              <div class="percentage-choice">
+                <label class="label-percent p4">
+                  <p>25%</p>
+                  <input type="radio" name="input-percent" id="25-percent" />
+                </label>
+              </div>
+
+              <div class="percentage-choice">
+                <label class="label-percent p5">
+                  <p>50%</p>
+                  <input type="radio" name="input-percent" id="50-percent" />
+                </label>
+              </div>
+
+              <div class="percentage-custom p6">
+                <input
+                  id="custom-input"
+                  name="custom-percent"
+                  type="text"
+                  placeholder="Custom"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="people-number">
+            <form action="#" method="post">
+              <div class="people-form forms">
+                <label for="people-number">Number of People</label>
+                <div class="error-msg"><p>Can't be zero</p></div>
+                <img src="./images/icon-person.svg" alt="person symbol" />
+                <input
+                  id="people-input"
+                  name="people-number"
+                  placeholder="1"
+                  type="number"
+                  oninput="this.value = Math.round(this.value)"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!--* Colone de DROITE -->
+        <div class="right-container">
+          <div class="right-sub-container">
+            <div class="tip-amount">
+              <div class="column-1">
+                <h2>Tip Amount</h2>
+                <p>/ person</p>
+              </div>
+              <div class="column-2">
+                <span class="tip-result">$0.00</span>
+              </div>
+            </div>
+
+            <div class="total">
+              <div class="column-1">
+                <h2>Total</h2>
+                <p>/ person</p>
+              </div>
+              <div class="column-2">
+                <span class="total-result">$0.00</span>
+              </div>
+            </div>
+            <div class="btn">
+              <button type="reset" class="reset-btn">RESET</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+    <script src="./themes.js"></script>
+  </body>
+</html>
