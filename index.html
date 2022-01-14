@@ -33,7 +33,6 @@
                 type="text"
                 required
                 placeholder="0.00"
-                onchange=""
               />
             </div>
           </div>
@@ -49,7 +48,6 @@
                     type="radio"
                     class="input-percent"
                     name="input-percent"
-                    id="5-percent"
                   />
                 </label>
               </div>
@@ -61,7 +59,6 @@
                     type="radio"
                     class="input-percent"
                     name="input-percent"
-                    id="10-percent"
                   />
                 </label>
               </div>
@@ -69,7 +66,11 @@
               <div class="percentage-choice">
                 <label class="label-percent p3">
                   <p>15%</p>
-                  <input type="radio" name="input-percent" id="15-percent" />
+                  <input
+                    type="radio"
+                    name="input-percent"
+                    class="input-percent"
+                  />
                 </label>
               </div>
             </div>
@@ -78,14 +79,22 @@
               <div class="percentage-choice">
                 <label class="label-percent p4">
                   <p>25%</p>
-                  <input type="radio" name="input-percent" id="25-percent" />
+                  <input
+                    type="radio"
+                    name="input-percent"
+                    class="input-percent"
+                  />
                 </label>
               </div>
 
               <div class="percentage-choice">
                 <label class="label-percent p5">
                   <p>50%</p>
-                  <input type="radio" name="input-percent" id="50-percent" />
+                  <input
+                    type="radio"
+                    name="input-percent"
+                    class="input-percent"
+                  />
                 </label>
               </div>
 
@@ -93,7 +102,7 @@
                 <input
                   id="custom-input"
                   name="custom-percent"
-                  type="text"
+                  type="number"
                   placeholder="Custom"
                 />
               </div>
@@ -104,14 +113,13 @@
             <form action="#" method="post">
               <div class="people-form forms">
                 <label for="people-number">Number of People</label>
-                <div class="error-msg"><p>Can't be zero</p></div>
+                <div class="error-msg"><p></p></div>
                 <img src="./images/icon-person.svg" alt="person symbol" />
                 <input
                   id="people-input"
                   name="people-number"
                   placeholder="1"
                   type="number"
-                  oninput="this.value = Math.round(this.value)"
                 />
               </div>
             </form>

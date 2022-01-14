@@ -1,152 +1,55 @@
-//?====================
-//! Bill Input
-//?====================
+//Montant de l'addition
+const billInput = document.querySelector("#bill-input");
 
-//* DOM Target Elements
-const bill = document.querySelector('#bill-input');
-//* User Choice
 let billInputValue = 0.0;
 
-bill.addEventListener('input', () => {
-
-    if(bill.value.includes(',')){
-        bill.value.replace(',', '.');
-    }
-
-    billInputValue = parseFloat(bill.value);
-
-    console.log(billInputValue);
+billInput.addEventListener("change", () => {
+  billInputValue = parseFloat(billInput.value);
 });
 
-//================================================================
+// Choix du pourboire
+const tipAmount = document.querySelectorAll(".input-percent");
+const tipsList = [0.05, 0.1, 0.15, 0.25, 0.5];
+let tipChoice = 0;
 
-//?====================
-//! Tip % selection 
-//?====================
-/*
-const tipBtns = document.querySelectorAll('.label-percent');
-
-tipBtns.forEach(btn =>{
-
-    btn.addEventListener('click', () =>{
-        tipBtns.forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-    if(event.target.innerHTML == btn.innerHTML){
-        btn.classList.add('acttive');
-    }    
-
-    });
+tipAmount.forEach(function (tip, i) {
+  tip.addEventListener("click", () => {
+    tipChoice = tipsList[i];
+  });
 });
-*/
 
-//* DOM Target Elements
-const fivePercent = document.querySelector('.p1');
-const tenPercent = document.querySelector('.p2');
-const fifteenPercent = document.querySelector('.p3');
-const twentyFivePercent = document.querySelector('.p4');
-const fiftyPercent = document.querySelector('.p5');
-const customPercent = document.querySelector('.p6');
+const customTip = document.querySelector("#custom-input");
 
-//* % list
-const percentages = [1.05, 1.10, 1.15, 1.25, 1.50];
+customTip.addEventListener("change", () => {
+  tipChoice = parseFloat(customTip.value / 100);
+});
 
-//* Input % choice
-let percentageInput = 0.00; 
+// Choix nombre de participants
+const peopleInput = document.querySelector("#people-input");
+const errMsg = document.querySelector(".error-msg");
+let peopleNumber = 0;
 
-//! User percentage choice
-function userPercentage(){
+peopleInput.addEventListener("change", () => {
+  if (peopleInput.value <= 0) {
+    errMsg.innerHTML = "Can't be zero";
+  } else {
+    peopleNumber = parseFloat(peopleInput.value);
+    errMsg.innerHTML = "";
+  }
+});
 
-    //* Events listeners
-    fivePercent.addEventListener('click', () =>{
-        percentageInput = percentages[0]
-        console.log(`Vous avez choisi ${percentageInput}.`);
-        fivePercent.classList.toggle('active');
-    });
+//Affichage des résultats
+const tipTotalDisplay = document.querySelector(".tip-result");
+const tipPerPeopleDisplay = document.querySelector(".total-result");
 
-    tenPercent.addEventListener('click', () =>{
-        percentageInput = percentages[1]
-        console.log(`Vous avez choisi ${percentageInput}.`);
-        tenPercent.classList.add('active');
-        
-    });
-
-    fifteenPercent.addEventListener('click', () =>{
-        percentageInput = percentages[2]
-        console.log(`Vous avez choisi ${percentageInput}.`);
-        fifteenPercent.classList.add('active');
-    });
-
-    twentyFivePercent.addEventListener('click', () =>{
-        percentageInput = percentages[3]
-        console.log(`Vous avez choisi ${percentageInput}.`);
-        twentyFivePercent.classList.add('active');
-    });
-
-    fiftyPercent.addEventListener('click', () =>{
-        percentageInput = percentages[4]
-        console.log(`Vous avez choisi ${percentageInput}.`);
-        fiftyPercent.classList.add('active');
-    });
-
-    customPercent.addEventListener('click', () =>{
-        console.log('Fonction non implémentée');
-    });
+function Totals() {
+  let total = Math.round(billInputValue + (tipChoice * 100) / peopleNumber);
+  console.log(total);
+  tipPerPeopleDisplay.innerHTML = `$ ${total}`;
 }
-userPercentage();
-
-//================================================================
-
-//?====================
-//! People Number Input
-//?====================
-
-//* DOM Target Elements
-const peopleNb = document.querySelector('#people-input');
-const errorMsg = document.querySelector('.error-msg');
-
-//* User Choice
-let peopleNbInputValue = 1;
-
-peopleNb.addEventListener('input', () => {
-    peopleNbInputValue = parseFloat(peopleNb.value);
-    console.log(peopleNbInputValue);
+// Bouton reset
+const resetBtn = document.querySelector(".reset-btn");
+resetBtn.addEventListener("click", () => {
+  //location.reload();
+  Totals();
 });
-
-
-
-//================================================================
-
-//?====================
-//! Results
-//?====================
-
-//* DOM Target Elements
-let tipAmount = document.querySelector('.tip-result');
-let total = document.querySelector('.total-result');
-
-// Tip Amount per Person
-function tipResultCalculator(){
-    tipAmount.addEventListener('click', ()=>{
-        let tipResult = ((billInputValue * percentageInput - billInputValue) / peopleNbInputValue).toFixed(2);
-        console.log(`Le résultat est de ${tipResult}`);
-        const tipResultDisplay = tipAmount.innerHTML;
-        tipAmount.innerHTML = `€ ${tipResult}`;
-    });
-};
-tipResultCalculator()
-
-// Total per Person
-function totalResultCalculator(){
-    total.addEventListener('click', ()=>{
-        let totalResult = ((billInputValue * percentageInput) / peopleNbInputValue).toFixed(2);
-        console.log(`Le résultat est de ${totalResult}`);
-        const totalResultDisplay = total.innerHTML;
-        total.innerHTML = `€ ${totalResult}`;
-    });
-};
-totalResultCalculator();
-
-
-//fonction globale qui check SI les values sont >0 
