@@ -267,8 +267,8 @@ h2 {
   font-size: 1.1rem;
   height: 35px;
   justify-content: center;
-  margin: 5px;
   text-align: center;
+  margin: 5px;
   width: 100px;
 }
 
@@ -276,6 +276,7 @@ h2 {
   color: white;
   font-weight: 700;
   letter-spacing: 1px;
+  width: 100%;
 }
 
 /*! Hovers & Checked Effects */
@@ -327,7 +328,6 @@ main.light-active {
   background-color: var(--cyan-5);
 }
 
-
 .active {
-  background-color: crimson;
+  background-color: crimson !important;
 }
