@@ -18,27 +18,33 @@ billInput.addEventListener("change", () => {
 
 // Choix du pourboire
 const tipAmount = document.querySelectorAll(".input-percent");
-const tipsList = [1.05, 1.1, 1.15, 1.25, 1.5];
-let tipChoice = 1.05;
+const tipsList = [0.05, 0.1, 0.15, 0.25, 0.5];
+let tipChoice = 0.05;
 const percentColor = document.querySelectorAll(".label-percent");
+const customTip = document.querySelector("#custom-input");
+
+function deleteActive() {
+  tipAmount.forEach(function (tipActive, k) {
+    if (percentColor[k].classList.contains("active")) {
+      percentColor[k].classList.remove("active");
+    }
+  });
+  customTip.classList.remove("active");
+}
 
 tipAmount.forEach(function (tip, i) {
   tip.addEventListener("click", () => {
     tipChoice = tipsList[i];
-    if (percentColor[i].classList.contains("active")) {
-      percentColor[i].classList.remove("active");
-    } else {
-      percentColor[i].classList.add("active");
-    }
-
+    deleteActive();
+    percentColor[i].classList.add("active");
     totals();
   });
 });
 
-const customTip = document.querySelector("#custom-input");
-
 customTip.addEventListener("change", () => {
-  tipChoice = parseFloat(`1.${customTip.value}`);
+  tipChoice = parseFloat(customTip.value / 100);
+  deleteActive();
+  customTip.classList.add("active");
   totals();
 });
 
@@ -62,12 +68,10 @@ const tipDisplay = document.querySelector(".tip-result");
 const totalDisplay = document.querySelector(".total-result");
 
 function totals() {
-  let total = Math.round((billInputValue * tipChoice) / peopleNumber);
+  let total = Math.round((billInputValue * (1 + tipChoice)) / peopleNumber);
   totalDisplay.innerHTML = `$ ${total}`;
 
-  let tipPerPerson = Math.round(
-    [billInputValue * tipChoice - billInputValue] / peopleNumber
-  );
+  let tipPerPerson = Math.round((billInputValue * tipChoice) / peopleNumber);
   tipDisplay.innerHTML = `$ ${tipPerPerson}`;
 }
 
