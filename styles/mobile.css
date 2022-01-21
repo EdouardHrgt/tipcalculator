@@ -1,0 +1,61 @@
+@media screen and (max-width: 800px) {
+    /*! Titles */
+    main h1 {
+        top: 30px;
+    }
+
+    /*! Calculator */
+    .calculator {
+        background-color: var(--white-);
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+        left: 50%;
+        margin: 0 auto;
+        position: absolute;
+        top: 17%;
+        transform: translate(-50%);
+        width: 375px;
+    }
+
+    /*! Both Columns */
+    .left-container,
+    .right-container {
+        height: 340px;
+        width: 375px;
+    }
+
+    /*! Right Column */
+    .right-sub-container {
+        height: 75%;
+    }
+
+    .right-sub-container span {
+        font-size: 35px;
+    }
+
+    .right-sub-container .btn {
+        bottom: 30px;
+    }
+
+    .tip-amount,
+    .total {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+    }
+
+    /*! Themes */
+    .theme {
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .theme button {
+        font-size: 14px;
+        padding: 5px;
+    }
+}

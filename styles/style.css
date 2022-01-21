@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+:root {
+    /* Sizings */
+    --Desktop: 1440px;
+    --Mobile: 375px;
+    --Calc-width: 800px;
+    --Calc-height: 450px;
+    --Calc-Intern-Margin-X: 10px;
+    --Calc-Intern-Margin-Y: 30px;
+
+    /* fonts */
+    --forms-input: 24px;
+    --XL-font: 700;
+    --L-font: 500;
+    --M-font: 400;
+
+    /* Primary colors */
+    --cyan: hsl(172, 67%, 45%);
+
+    /* Neutral colors */
+    --cyan-1: hsl(183, 100%, 15%);
+    --cyan-2: hsl(186, 14%, 43%);
+    --cyan-3: hsl(184, 14%, 56%);
+    --cyan-4: hsl(185, 41%, 84%);
+    --cyan-5: hsl(189, 41%, 97%);
+    --cyan-6: hsl(183, 100%, 23%);
+    --white-: hsl(0, 0%, 100%);
+}
+
+/*====================
+      Global Style
+  ====================*/
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-color: var(--cyan-4);
+    height: 100vh;
+    transition: all 1s;
+    width: 100%;
+}
+
+/*! Titles */
+main h1 {
+    letter-spacing: 10px;
+    position: relative;
+    text-align: center;
+    top: 100px;
+    transition: all 2s;
+}
+
+h1,
+h2 {
+    color: var(--cyan-1);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.1rem;
+    padding: 5px;
+}
+
+.tip h2 {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.right-sub-container h2 {
+    color: var(--white-);
+    letter-spacing: 1.5px;
+    font-size: 1rem;
+}
+
+/*! Calculator */
+.calculator,
+.right-sub-container {
+    border-radius: 20px;
+}
+
+.calculator {
+    background-color: var(--white-);
+    display: flex;
+    height: var(--Calc-height);
+    justify-content: center;
+    left: 50%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -40%);
+    width: var(--Calc-width);
+}
+
+/*! Both Columns */
+.left-container,
+.right-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: var(--Calc-height);
+    justify-content: space-around;
+    width: 375px;
+}
+
+.bill,
+.tip,
+.people-number,
+.tip-amount,
+.total,
+.btn {
+    width: 90%;
+}
+
+/*! Left column */
+.tip-grid,
+.tip-grid-2 {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/*! Right Column */
+.right-sub-container {
+    align-items: center;
+    background-color: var(--cyan-1);
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    position: relative;
+    width: 90%;
+}
+
+.right-sub-container p {
+    color: var(--cyan-4);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.right-sub-container span {
+    color: var(--cyan);
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.right-sub-container .btn {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 30px;
+}
+
+.right-sub-container button {
+    background-color: var(--cyan-6);
+    border-radius: 5px;
+    border: none;
+    color: var(--cyan-1);
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 500;
+    height: 3rem;
+    letter-spacing: 2px;
+    width: 100%;
+}
+
+.tip-amount,
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 45px;
+}
+
+/*! Forms */
+.forms {
+    color: var(--cyan-1);
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    height: 70px;
+    letter-spacing: 1px;
+    position: relative;
+    width: 100%;
+}
+
+.forms label {
+    padding-bottom: 5px;
+}
+
+.forms input {
+    background-color: var(--cyan-5);
+    border-radius: 5px;
+    border: none;
+    color: var(--cyan-1);
+    cursor: pointer;
+    font-size: var(--forms-input);
+    font-weight: 700;
+    height: 100%;
+    letter-spacing: 2px;
+    padding-right: 15px;
+    text-align: right;
+}
+
+.forms img {
+    height: 20px;
+    left: 15px;
+    position: absolute;
+    top: 50%;
+    width: 15px;
+}
+
+.error-msg {
+    color: crimson;
+    font-size: 16px;
+    letter-spacing: 0px;
+    position: absolute;
+    right: 0;
+}
+
+.percentage-choice {
+    align-items: center;
+    border-radius: 5px;
+    display: flex;
+    height: 35px;
+    justify-content: center;
+    margin: 5px;
+    position: relative;
+    width: 100px;
+}
+
+.label-percent {
+    background-color: var(--cyan-1);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+.label-percent p {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.label-percent input {
+    visibility: hidden;
+}
+
+#custom-input {
+    align-items: center;
+    background-color: var(--cyan-1);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.1rem;
+    height: 35px;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    width: 100px;
+}
+
+#custom-input::placeholder {
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+/*! Hovers & Checked Effects */
+
+.right-sub-container button:hover {
+    background-color: var(--cyan);
+}
+
+.forms input:hover {
+    border: 2px solid var(--cyan);
+}
+
+.theme button:hover {
+    background-color: var(--cyan);
+    opacity: 1;
+}
+
+/*! Themes */
+
+.theme {
+    position: absolute;
+    top: -30px;
+}
+
+.theme button {
+    border: none;
+    background-color: var(--cyan-6);
+    font-size: 16px;
+    padding: 5px 7px;
+    color: var(--white-);
+    opacity: 0.4;
+}
+
+/*! Active status */
+
+main.dark-active {
+    background-color: var(--cyan-1);
+}
+
+main h1.dark-active {
+    color: white;
+}
+
+main h1.light-active {
+    color: var(--cyan-1);
+}
+
+main.light-active {
+    background-color: var(--cyan-5);
+}
+
+.active {
+    background-color: crimson !important;
+}

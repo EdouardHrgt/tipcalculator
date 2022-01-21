@@ -4,23 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mobile.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/mobile.css" />
     <title>Calculator APP</title>
     <!-- From https://www.frontendmentor.io/ by Edouard Herrengt -->
   </head>
   <body>
     <main>
       <h1 class="mode-test">SPLI<br />TTER</h1>
-      <!-- Toute la calculette -->
+      <!-- Global Container -->
       <section class="calculator">
-        <!--Thèmes-->
+        <!--Themes-->
         <div class="theme">
           <button class="dark">Dark</button>
           <button class="light">Light</button>
         </div>
 
-        <!-- Colone de GAUCHE -->
+        <!-- Left Column -->
         <div class="left-container">
           <div class="bill">
             <div class="bill-form forms">
@@ -113,7 +113,9 @@
             <form action="#" method="post">
               <div class="people-form forms">
                 <label for="people-number">Number of People</label>
-                <div class="error-msg" id="people-error"><p></p></div>
+                <div class="error-msg" id="people-error">
+                  <p></p>
+                </div>
                 <img src="./images/icon-person.svg" alt="person symbol" />
                 <input
                   id="people-input"
@@ -126,7 +128,7 @@
           </div>
         </div>
 
-        <!-- Colone de DROITE -->
+        <!-- Right Column -->
         <div class="right-container">
           <div class="right-sub-container">
             <div class="tip-amount">
@@ -155,7 +157,7 @@
         </div>
       </section>
     </main>
-    <script src="./app.js"></script>
-    <script src="./themes.js"></script>
+    <script src="./app/app.js"></script>
+    <script src="./app/themes.js"></script>
   </body>
 </html>
